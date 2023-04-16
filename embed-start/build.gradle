@@ -23,9 +23,9 @@ tasks.named('test') {
 }
 
 //일반 Jar 생성
-task buildJar(type: Jar) {
+task buildJar(type: Jar) { //./graldew clean buildJar 하면, build/libs 하위에 snapshot jar 파일 생성됨
     manifest {
-        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
+        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain' // MENIFEST 파일 자동으로 생성됨
     }
     with jar
 }
