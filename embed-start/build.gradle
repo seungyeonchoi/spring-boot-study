@@ -4,7 +4,7 @@ plugins {
 
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '8'
 
 repositories {
     mavenCentral()
@@ -12,10 +12,10 @@ repositories {
 
 dependencies {
     //스프링 MVC 추가
-    implementation 'org.springframework:spring-webmvc:6.0.4'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.0.6.RELEASE'
 
     //내장 톰켓 추가
-    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.5'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.69'
 }
 
 tasks.named('test') {
