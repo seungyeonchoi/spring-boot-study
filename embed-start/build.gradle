@@ -4,7 +4,7 @@ plugins {
 
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '8'
 
 repositories {
     mavenCentral()
@@ -12,10 +12,10 @@ repositories {
 
 dependencies {
     //스프링 MVC 추가
-    implementation 'org.springframework:spring-webmvc:6.0.4'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.0.6.RELEASE'
 
     //내장 톰켓 추가
-    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.5'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.69'
 }
 
 tasks.named('test') {
@@ -23,14 +23,14 @@ tasks.named('test') {
 }
 
 //일반 Jar 생성
-task buildJar(type: Jar) {
+task buildJar(type: Jar) { //./graldew clean buildJar 하면, build/libs 하위에 snapshot jar 파일 생성됨
     manifest {
-        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
+        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain' // MENIFEST 파일 자동으로 생성됨
     }
     with jar
 }
 
-//Fat Jar 생성
+//Fat Jar 생성 // jar안에 jar를 포함할 수 없는 한계를 극복하기 위한 방법
 task buildFatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
