@@ -30,7 +30,7 @@ task buildJar(type: Jar) { //./graldew clean buildJar 하면, build/libs 하위�
     with jar
 }
 
-//Fat Jar 생성
+//Fat Jar 생성 // jar안에 jar를 포함할 수 없는 한계를 극복하기 위한 방법
 task buildFatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
